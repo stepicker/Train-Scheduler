@@ -24,9 +24,9 @@
 
 </head>
 
-<body>
+<body background="./assets/background.png">
 
-    <table class="table">
+    <table class="table table-hover">
         <thead>
             <tr>
             <th scope="col">Train Name</th>
@@ -34,6 +34,7 @@
             <th scope="col">Frequency (min)</th>
             <th scope="col">Next Arrival</th>
             <th scope="col">Minutes Away</th>
+            <th scope="col"></th>
             </tr>
         </thead>
         <tbody id="schedule">
@@ -41,26 +42,36 @@
     </table>
 
     <br>
+    <br>
 
-    <form>
-        <div class="form-group">
-            <label for="train-name">Train Name</label>
-            <input type="text" class="form-control" id="train-name" placeholder="i.e. Philadelphia Express">
+    <div class="card w-50 mx-auto bg-light">
+        <h5 class="card-header">Add Trains</h5>
+        <div class="card-body">
+            <form>
+                    <div class="form-group">
+                        <label for="train-name">Train Name</label>
+                        <input type="text" class="form-control" id="train-name" placeholder="i.e. Philadelphia Express">
+                    </div>
+                    <div class="form-group">
+                        <label for="destination">Destination</label>
+                        <input type="text" class="form-control" id="destination" placeholder="i.e. Philadelphia">
+                    </div>
+                    <div class="form-group">
+                            <label for="first-time">First Train Time (HH:mm - military time)</label>
+                            <input type="text" class="form-control" id="first-time" placeholder="i.e. 15:35">
+                    </div>
+                    <div class="form-group">
+                            <label for="frequency">Frequency (min)</label>
+                            <input type="text" class="form-control" id="frequency" placeholder="i.e. 20">
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-sm" id="train-submit">Submit</button>
+            </form>
         </div>
-        <div class="form-group">
-            <label for="destination">Destination</label>
-            <input type="text" class="form-control" id="destination" placeholder="i.e. Philadelphia">
-        </div>
-        <div class="form-group">
-                <label for="first-time">First Train Time (HH:mm - military time)</label>
-                <input type="text" class="form-control" id="first-time" placeholder="i.e. 15:35">
-        </div>
-        <div class="form-group">
-                <label for="frequency">Frequency (min)</label>
-                <input type="text" class="form-control" id="frequency" placeholder="i.e. 20">
-        </div>
-        <button type="submit" class="btn btn-primary" id="train-submit">Submit</button>
-    </form>
+    </div>
+    
+    <br>
+
+    <span class="badge badge-warning float-right mr-5" id="last-updated"></span>
 
   <!-- Linking script -->
   <script type="text/javascript" src="./assets/app.js"></script>

@@ -106,6 +106,8 @@ database.ref().orderByChild("dateAdded").on("child_added", function(snapshot) {
     // Populate the HTML
     $("#schedule").append("<tr id='" + snapshot.key + "'><td>" + sv.trainName + "</td><td>" + sv.trainDestination + "</td><td>" + sv.trainFrequency + "</td><td>" + moment(nextTrain, "HH:mm").format("hh:mm a") + "</td><td>" + minsAway + "</td><td><button type='button' data-key='" + snapshot.key + "' class='btn btn-danger btn-sm'>Delete</button></td></tr>");
 
+    $("#last-updated").text("Last Updated at " + moment(currentTime, "HH:mm").format("hh:mm a"));
+
     // Handle the errors
   }, function(errorObject) {
     console.log("Errors handled: " + errorObject.code);
