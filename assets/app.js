@@ -1,5 +1,5 @@
 $(document).ready(function() {
-    
+
 
 // DATABASE
 // ==================================================
@@ -71,6 +71,7 @@ database.ref().orderByChild("dateAdded").on("child_added", function(snapshot) {
     var currentTime = moment().format("HH:mm");
     console.log("-----");
     console.log("Current time: " + currentTime);
+    console.log("Key: " + snapshot.key);
 
     // Storing the snapshot.val() in a variable for convenience
     var sv = snapshot.val();
@@ -103,12 +104,20 @@ database.ref().orderByChild("dateAdded").on("child_added", function(snapshot) {
     console.log("Minutes Away: " + minsAway);
 
     // Populate the HTML
-    $("#schedule").append("<tr><td>" + sv.trainName + "</td><td>" + sv.trainDestination + "</td><td>" + sv.trainFrequency + "</td><td>" + moment(nextTrain, "HH:mm").format("hh:mm a") + "</td><td>" + minsAway + "</td></tr>");
+    $("#schedule").append("<tr id='" + snapshot.key + "'><td>" + sv.trainName + "</td><td>" + sv.trainDestination + "</td><td>" + sv.trainFrequency + "</td><td>" + moment(nextTrain, "HH:mm").format("hh:mm a") + "</td><td>" + minsAway + "</td><td><button type='button' data-key='" + snapshot.key + "' class='btn btn-danger btn-sm'>Delete</button></td></tr>");
 
     // Handle the errors
   }, function(errorObject) {
     console.log("Errors handled: " + errorObject.code);
-  });
+});
 
+// Manage train deletion
+$(document).on("click", ".btn-danger", function(){
+
+    var key = $(this).attr("data-key");
+    database.ref().child(key).remove();
+    $("#" + key).remove();
+
+});
 
 });
