@@ -14,7 +14,7 @@ It uses:
 
 The user can add trains and include the time when the first one arrives, as well as the frequency.
 
-The app will calculate when the next train is due to arrive from the present time.
+The app will calculate when the next train is due to arrive (based on the time when the page is loaded).
 
 
 ## Ready to try it?
