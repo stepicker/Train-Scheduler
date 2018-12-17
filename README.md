@@ -19,7 +19,7 @@ The app will calculate when the next train is due to arrive (based on the time w
 
 ## Ready to try it?
 
-Head to https://stepicker.github.io/Train-Scheduler
+Head to https://stepicker.github.io/Train-Scheduler/
 
 
 ## Contributing
